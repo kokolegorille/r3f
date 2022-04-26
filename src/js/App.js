@@ -1,63 +1,26 @@
-import React, { useRef } from "react"
-import { 
-    Canvas, 
-    useFrame, 
-    useThree,
-    extend 
-} from "@react-three/fiber"
-import { 
-    OrbitControls 
-} from "three/examples/jsm/controls/OrbitControls"
-extend({ OrbitControls })
+import React from "react"
+import { Canvas } from "@react-three/fiber"
 
-const Orbit = () => {
-    const { camera, gl } = useThree()
-    return (
-        <orbitControls args={[camera, gl.domElement]}/>
-    )
-}
-
-const Box = props => {
-    const ref = useRef()
-    useFrame(state => {
-        console.log(ref.current)
-        console.log(state)
-        ref.current.rotation.x += 0.01
-    })
-    return (
-        <mesh ref={ref} {...props}>
-            <boxBufferGeometry />
-            <meshBasicMaterial color="blue" />
-        </mesh>
-    )
-}
-
-const Sphere = props => {
-    const ref = useRef()
-    useFrame(state => {
-        console.log(ref.current)
-        console.log(state)
-        ref.current.rotation.x += 0.01
-    })
-    return (
-        <mesh ref={ref} {...props}>
-            <sphereBufferGeometry />
-            <meshStandardMaterial color="hotpink" />
-        </mesh>
-    )
-}
+import Box from "./components/Box"
+import Bulb from "./components/Bulb"
+import Floor from "./components/Floor"
+import Orbit from "./components/Orbit"
+import Sphere from "./components/Sphere"
 
 const App = () => {
     return (
         <div style={{height: "100vh", width: "100vw"}}>
             <Canvas 
+                shadows
                 style={{backgroundColor: "black"}} 
                 camera={{position: [3, 3, 3]}}>
+                <ambientLight intensity={0.2} />
                 <Orbit />
                 <axesHelper args={[3]} />
-                <pointLight position={[10, 10, 10]} />
-                <Box position={[-2, 2, 0]}/>
-                <Sphere position={[2, 2, 0]}/>
+                <Bulb position={[0, 3, 0]} />
+                <Floor position={[0, -0.5, 0]}/>
+                <Box position={[-1, 2, 0]}/>
+                <Sphere position={[-3, 1, 1]}/>
             </Canvas>
         </div>
     )
