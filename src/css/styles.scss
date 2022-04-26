@@ -1,0 +1,17 @@
+html {
+    font-family: roboto;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: lightgray;
+    z-index: -1;
+}
