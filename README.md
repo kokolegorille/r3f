@@ -19,5 +19,5 @@ Attention, les noms des packages pour rect three fiber et cannon ont changés!
 
 ```
 npm i react react-dom
-npm i @react-three/fiber @react-three/cannon
+npm i @react-three/fiber @react-three/cannon @react-three/postprocessing
 ```

@@ -22,51 +22,42 @@ const Dragable = props => {
     }, [])
 
     useEffect(() => {
-        if (controlsRef.current) {
-            controlsRef.current.addEventListener(
-                "hoveron",
-                _e => toggle(false)
-            )
-            controlsRef.current.addEventListener(
-                "hoveroff",
-                _e => toggle(true)
-            )
-            controlsRef.current.addEventListener(
-                "drag",
-                e => {
-                    if (e.object.api) {
-                        e.object.api.position.copy(e.object.position)
-                        e.object.api.velocity.set(0, 0, 0)
-                    }
-                }
-            )
-            controlsRef.current.addEventListener(
-                "dragstart",
-                e => {
-                    if (e.object.api) { e.object.api.mass.set(0) }
-                }
-            )
-            controlsRef.current.addEventListener(
-                "dragend",
-                e => {
-                    if (e.object.api) { e.object.api.mass.set(1) }
-                }
-            )
-        }
-        return () => {
-            if (controlsRef.current) {
-                controlsRef.current.removeEventListener("hoveron")
-                controlsRef.current.removeEventListener("hoveroff")
-                controlsRef.current.removeEventListener("drag")
-                controlsRef.current.removeEventListener("dragstart")
-                controlsRef.current.removeEventListener("dragend")
+        controlsRef.current?.addEventListener(
+            "hoveron",
+            _e => toggle(false)
+        )
+        controlsRef.current?.addEventListener(
+            "hoveroff",
+            _e => toggle(true)
+        )
+        controlsRef.current?.addEventListener(
+            "drag",
+            e => {
+                e.object.api?.position.copy(e.object.position)
+                e.object.api?.velocity.set(0, 0, 0)
             }
+        )
+        controlsRef.current?.addEventListener(
+            "dragstart",
+            e => e.object.api?.mass.set(0)
+        )
+        controlsRef.current?.addEventListener(
+            "dragend",
+            e => e.object.api?.mass.set(1)
+        )
+        return () => {
+            controlsRef.current?.removeEventListener("hoveron")
+            controlsRef.current?.removeEventListener("hoveroff")
+            controlsRef.current?.removeEventListener("drag")
+            controlsRef.current?.removeEventListener("dragstart")
+            controlsRef.current?.removeEventListener("dragend")
         }
     }, [children])
 
     return (
         <group ref={groupRef}>
             <dragControls 
+                transformGroup={props.transformGroup}
                 ref={controlsRef} 
                 args={[children, camera, gl.domElement]} />
             {props.children}
