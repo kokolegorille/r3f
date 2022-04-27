@@ -1,4 +1,4 @@
-html {
+html, body {
     font-family: roboto;
     padding: 0;
     margin: 0;
@@ -8,10 +8,10 @@ html {
     box-sizing: inherit;
 }
 
-#canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: lightgray;
-    z-index: -1;
-}
+// #canvas {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     background-color: lightgray;
+//     z-index: -1;
+// }
