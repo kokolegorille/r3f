@@ -21,3 +21,8 @@ Attention, les noms des packages pour rect three fiber et cannon ont changés!
 npm i react react-dom
 npm i @react-three/fiber @react-three/cannon @react-three/postprocessing
 ```
+
+It would be nice to add other camera controls.
+Check how to start scene clock
+Effects are heavy on CPU (GPU?)
+Use of ? syntax in JS :-)
