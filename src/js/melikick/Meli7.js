@@ -20,10 +20,15 @@ const Lights = () => {
 const Meli7 = () => {
     return (
         <div style={{height: "100vh", width: "100vw"}}>
-            <Canvas>
+            <Canvas 
+                shadows
+                style={{backgroundColor: "gray"}} 
+                camera={{position: [4, 5, 7]}} >
                 <Lights />
                 <Suspense fallback={null}>
-                    <MeliKick position={[0, 0, 0]}/>
+                    <MeliKick 
+                        position={[0, 0, 0]}
+                        scale={new Array(3).fill(3)} />
                 </Suspense>
                 <OrbitControls />
             </Canvas>
