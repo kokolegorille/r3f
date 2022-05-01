@@ -6,6 +6,7 @@ import Meli7 from "./melikick/Meli7"
 import Fox from "./fox/Fox"
 import ThirdPersonController from "./third_person_controller/ThirdPersonController"
 import LightningApp from "./lightning/LightningApp"
+import Animation from "./animation/Animation"
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
                     <li><Link to="/fox">AirWing</Link></li>
                     <li><Link to="/tpc">Third Person Controller</Link></li>
                     <li><Link to="/lightning">Lightning</Link></li>
+                    <li><Link to="/animation">Animation</Link></li>
                 </ul>
             </nav>
         </>
@@ -33,6 +35,7 @@ const App = () => {
             <Route path="/fox" element={<Fox />} />
             <Route path="/tpc" element={<ThirdPersonController />} />
             <Route path="/lightning" element={<LightningApp />} />
+            <Route path="/animation" element={<Animation />} />
         </Routes>
     )
 }

@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense } from "react"
+import { Canvas } from "@react-three/fiber"
 import {
     OrbitControls, 
     Loader, 
-} from "@react-three/drei";
+} from "@react-three/drei"
 
 import MeliKick from "./MeliKick"
 
@@ -15,7 +15,7 @@ const Lights = () => {
             <directionalLight position={[0, 0, 0]} intensity={1.5} />
         </>
     )
-};
+}
 
 const Meli7 = () => {
     return (
@@ -37,4 +37,4 @@ const Meli7 = () => {
     )
 }
 
-export default Meli7;
+export default Meli7
